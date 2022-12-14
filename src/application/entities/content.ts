@@ -13,7 +13,7 @@ export class Content {
     const isContentLengthValid = this.validateContentLength(content);
 
     if (!isContentLengthValid) {
-      throw new Error('Contentlenght error.');
+      throw new Error('Content lenght error.');
     }
 
     this.content = content;
