@@ -9,6 +9,7 @@
     "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist",
+    "strictPropertyInitialization": false,
     "strict": true,
     "baseUrl": "./",
     "incremental": true,
