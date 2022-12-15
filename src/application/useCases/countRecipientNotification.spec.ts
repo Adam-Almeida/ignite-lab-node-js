@@ -1,5 +1,4 @@
-import { Content } from '@application/entities/content';
-import { Notification } from '@application/entities/notification';
+import { makeNotification } from '@test/factories/NotificationFactory';
 import { InMemoryNotificationsRepository } from '@test/repositories/inMemoryNotificationsRepository';
 import { CountRecipientNotificationUseCase } from './CountRecipientNotificationUseCase';
 
@@ -12,27 +11,15 @@ describe('Count recipients notifications', () => {
     );
 
     await notificationsRepository.create(
-      new Notification({
-        recipientId: 'recipient-1',
-        category: 'social',
-        content: new Content('This is a new notification.'),
-      }),
+      makeNotification({ recipientId: 'recipient-1' }),
     );
 
     await notificationsRepository.create(
-      new Notification({
-        recipientId: 'recipient-1',
-        category: 'social',
-        content: new Content('This is a new notification.'),
-      }),
+      makeNotification({ recipientId: 'recipient-1' }),
     );
 
     await notificationsRepository.create(
-      new Notification({
-        recipientId: 'recipient-2',
-        category: 'social',
-        content: new Content('This is a new notification.'),
-      }),
+      makeNotification({ recipientId: 'recipient-2' }),
     );
 
     const { count } = await countRecipientNotifications.execute({
