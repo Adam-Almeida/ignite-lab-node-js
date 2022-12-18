@@ -10,7 +10,9 @@ describe('Unread notification', () => {
       notificationsRepository,
     );
 
-    const notification = makeNotification();
+    const notification = makeNotification({
+      readAt: new Date(),
+    });
 
     await notificationsRepository.create(notification);
 
@@ -18,9 +20,7 @@ describe('Unread notification', () => {
       notificationId: notification.id,
     });
 
-    expect(notificationsRepository.notifications[0].readAt).toEqual(
-      expect.any(Date),
-    );
+    expect(notificationsRepository.notifications[0].readAt).toBeNull();
   });
 
   it('should not be able to read a non exisiting notification', async () => {
