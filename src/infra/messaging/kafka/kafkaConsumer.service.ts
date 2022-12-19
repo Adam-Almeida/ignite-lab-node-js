@@ -13,8 +13,8 @@ export class KafkaConsumerService
         brokers: ['valued-swine-7795-us1-kafka.upstash.io:9092'],
         sasl: {
           mechanism: 'scram-sha-256',
-          username: '1',
-          password: '1',
+          username: 'w',
+          password: 'w',
         },
         ssl: true,
       },

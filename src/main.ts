@@ -13,6 +13,8 @@ async function bootstrap() {
   app.connectMicroservice<MicroserviceOptions>({
     strategy: kafkaConsumerService,
   });
+
+  app.startAllMicroservices();
   await app.listen(3000);
 }
 bootstrap();
